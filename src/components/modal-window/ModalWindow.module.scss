@@ -1,0 +1,193 @@
+@import "src/common/styles/variables";
+@import "src/common/styles/mixins";
+
+.modal {
+  background: rgba(0, 0, 0, 0.8);
+
+  padding: 10px;
+  height: 100%;
+  width: 100%;
+
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  z-index: 30;
+
+  .modal__container {
+
+    width: 384px;
+    height: 536px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 56px 26px;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background: #FFFFFF;
+    border-radius: 24px;
+
+    @media screen and (max-width: 385px){
+      width: 100%;
+    }
+
+    .modal__close_button {
+      cursor: pointer;
+
+      background-color: #F2F2F2;
+      position: absolute;
+
+      width: 30px;
+      height: 30px;
+      right: -10px;
+      top: -10px;
+
+      border-radius: 50%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    //styles for the container where the price, name, category
+    .modal__data_container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .modal__category {
+        @include textStyle(400, 16px, 24px, 0.04em, $textColor);
+        text-transform: uppercase;
+        opacity: 0.5;
+      }
+
+      .modal__name {
+        @include textStyle(400, 40px, 48px, -0.02em, $textColor);
+        text-transform: capitalize;
+        padding-top: 10px;
+      }
+
+      .modal__price {
+        @include textStyle(400, 60px, 72px, -0.02em, $textColor);
+        position: relative;
+
+        padding-top: 10px;
+        padding-left: 20px;
+        span {
+          @include textStyle(400, 30px, 35px, -0.02em, $textColor);
+          width: 17px;
+          height: 35px;
+          position: absolute;
+
+          left: 0px;
+          top: 13px;
+
+          padding-top: 10px;
+        }
+      }
+    }
+
+    // styles for modal-form
+    .modal__form {
+      display: flex;
+      flex-direction: column;
+      padding: 30px;
+
+      .modal__name_container{
+        margin-bottom: 8px;
+        position: relative;
+      }
+      .modal__input {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 16px;
+        margin-bottom: 10px;
+
+
+        width: 288px;
+        height: 56px;
+
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 16px;
+      }
+
+      .modal__name_reset {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        left: 90%;
+        top: 20%;
+
+        background-color: #E43F3F;
+        color: #fff;
+        border-radius: 50%;
+        cursor: pointer;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .modal__phone_reset {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        left: 90%;
+        top: 20%;
+
+        background-color: #E43F3F;
+        color: #fff;
+        border-radius: 50%;
+        cursor: pointer;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      //form validation check
+      .modal__error {
+        @include textStyle(400, 12px, 16px, 0.04em, #E43F3F);
+        margin-bottom: 8px;
+      }
+
+
+      .modal__input_valid {
+        border: 1px solid $validBackgorund;
+      }
+
+      .modal__input_error {
+        border: 1px solid #E43F3F;
+      }
+      ///////////
+
+      .modal__form__submit_button {
+        align-items: center;
+        padding: 16px 103px;
+        gap: 8px;
+        margin-top: 10px;
+        position: relative;
+
+        width: 288px;
+        height: 56px;
+
+        background: $validBackgorund;
+        border-radius: 16px;
+        @include textStyle(500, 16px, 24px, 0.04em, #FFFFFF);
+        text-transform: uppercase;
+
+        &:hover {
+          border: 1px solid rgba(0, 0, 0, 0.3);
+          background-color: #FFF;
+          color: $validBackgorund;
+        }
+      }
+    }
+  }
+}

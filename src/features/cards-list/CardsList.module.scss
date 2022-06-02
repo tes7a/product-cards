@@ -1,0 +1,55 @@
+@import "src/common/styles/variables";
+@import "src/common/styles/mixins";
+
+//styles for the component in which the cards are rendered
+.main__wrapper {
+  padding: 10px;
+
+  .main_container {
+    padding-top: 105px;
+    padding-left: 85px;
+    position: relative;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 26px;
+    @media screen and (max-width: 1540px) {
+      grid-template-columns: repeat(3, 1fr);
+      padding-left: 0;
+    }
+    @media screen and (max-width: 1140px){
+      grid-template-columns: repeat(2, 1fr);
+      padding-left: 0;
+    }
+    @media screen and (max-width: 767px){
+      grid-template-columns: repeat(1, 1fr);
+      padding-left: 0;
+    }
+  }
+
+  .main_container__button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    padding-left: 60px;
+    gap: 10px;
+    margin: 77px auto 0 auto;
+    position: relative;
+
+    width: 235px;
+    height: 60px;
+
+    background: $validBackgorund;
+    border-radius: 16px;
+
+    @include textStyle(400, 21px, 28px, -0.02em, #FFF);
+
+    &:hover {
+      background: #FFF;
+      color: $validBackgorund;
+      border: 1px solid rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
