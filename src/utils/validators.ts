@@ -2,5 +2,5 @@ export const validators = {
     //regular expression for correct name
     nameValidator: /^([а-яё]+|[a-z]+)$/i,
     //regular expression for correct mobile phone number,
-    phoneValidator: /[0-9]/,
+    phoneValidator: /^\d+$/,
 };

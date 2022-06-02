@@ -47,6 +47,7 @@ export const useForms = (validate: (field: string, value: string) => string) => 
         setNameErr(validate("name", values.name));
         setNumberErr(validate("number", values.number));
         if (!nameErr && !numberErr) {
+            if(!validate("name", values.name) && !validate("number", values.number))
             if (blurNameErr || blurNumberErr) {
                 console.log(values);
             }

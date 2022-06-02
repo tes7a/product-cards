@@ -6,7 +6,7 @@ import {validateInfo} from "../../utils/validateInfo";
 import {getClassName} from "../../utils/get-class-name";
 
 export const ModalWindow: React.FC<ModalWindowType> = (
-    {name, category, price,show, setShow}
+    {name, category, price, show, setShow}
 ) => {
     //hooks
     const {
@@ -26,14 +26,13 @@ export const ModalWindow: React.FC<ModalWindowType> = (
         setShow(false);
     };
 
-
     //hide overflow
     useEffect(() => {
-        if(show){
+        if (show) {
             document.body.style.overflow = "hidden";
         }
 
-        return  () => {
+        return () => {
             document.body.style.overflow = "unset";
         }
     }, [show]);
@@ -64,8 +63,8 @@ export const ModalWindow: React.FC<ModalWindowType> = (
                             placeholder={"Name"}
                             value={values.name}
                         />
-                        {(nameErr && blurNameErr) && <span className={s.modal__error}>{nameErr}</span>}
-                        {(nameErr && blurNameErr) &&
+                        {nameErr && <span className={s.modal__error}>{nameErr}</span>}
+                        {nameErr &&
                             <a id={"name"} className={`${s.modal__name_reset} _icon-x`} onClick={handleClear}></a>}
                     </div>
                     <div className={s.modal__name_container}>
@@ -83,8 +82,8 @@ export const ModalWindow: React.FC<ModalWindowType> = (
                             placeholder={"Number"}
                             value={values.number}
                         />
-                        {(numberErr && blurNumberErr) && <span className={s.modal__error}>{numberErr}</span>}
-                        {(numberErr && blurNumberErr) &&
+                        {numberErr && <span className={s.modal__error}>{numberErr}</span>}
+                        {numberErr &&
                             <a id={"number"} className={`${s.modal__phone_reset} _icon-x`} onClick={handleClear}></a>}
                     </div>
                     <button onClick={handleSubmit} className={s.modal__form__submit_button}>
